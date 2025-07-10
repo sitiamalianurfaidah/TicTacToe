@@ -30,13 +30,15 @@ a {
 }
 
 nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #0A0519;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--card-color);
-    position: sticky;
-    top: 0;
     z-index: 1000;
 }
 
@@ -48,7 +50,7 @@ nav.navbar {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .nav-links li a {
@@ -68,31 +70,79 @@ nav.navbar {
 }
 
 section {
-    padding: 3rem 2rem;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 2rem;
+    scroll-margin-top: 80px;
 }
 
 #hero {
-    padding-top: 6rem;
+    position: relative;
+    background-image: url("background-dark.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
 }
+
+.hero-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,   /* atas: tipis */
+        rgba(0, 0, 0, 0.5) 50%,  /* tengah */
+        var(--bg-color) 100%     /* bawah: sama kayak #about */
+    );
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
 #hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 6rem;
+    margin-bottom: 0rem;
 }
 #hero p {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+.hero-subtitle {
+    font-size: 1.4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1.6s;
 }
 .cta-button {
-    background-color: var(--primary-x);
+    background: linear-gradient(135deg, #5911b8, #8813a8, #cc4d82);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: bold;
-    transition: background 0.3s;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cta-button:hover {
-    background-color: #0c7bcc;
+    transform: scale(1.05);
+}
+.hero-cta {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 2s;
 }
 
 #howto ul.steps {
@@ -208,4 +258,96 @@ footer {
     #hero h1 {
         font-size: 2.2rem;
     }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.title-animated {
+    display: flex;
+    gap: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0; 
+}
+
+.word {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+/* Tic masuk dari kiri atas */
+.word.tic {
+    animation-name: flyFromTopLeft;
+    animation-delay: 0.2s;
+}
+
+/* Tac masuk dari kanan bawah */
+.word.tac {
+    animation-name: flyFromBottomRight;
+    animation-delay: 0.6s;
+}
+
+/* Toe masuk dari kiri bawah */
+.word.toe {
+    animation-name: flyFromBottomLeft;
+    animation-delay: 1s;
+}
+
+/* Animasi dari pojok */
+@keyframes flyFromTopLeft {
+    from {
+        transform: translate(-120vw, -120vh) scale(0.3);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flyFromBottomRight {
+    from {
+        transform: translate(120vw, 120vh) scale(0.3);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flyFromBottomLeft {
+    from {
+        transform: translate(-120vw, 120vh) scale(0.3);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.title-animated {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+.hero-subtitle, .hero-cta {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+    margin-top: 0rem;
 }

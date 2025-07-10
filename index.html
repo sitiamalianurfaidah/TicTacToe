@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- 🌙 Theme Toggle & Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">TicTacToe</div>
         <ul class="nav-links">
@@ -19,20 +18,23 @@
         <button id="themeToggle">🌙</button>
     </nav>
 
-    <!-- 🎯 Hero Section -->
     <section id="hero">
-        <h1>Tic Tac Toe</h1>
-        <p>Challenge your mind, one move at a time.</p>
-        <a href="#about" class="cta-button">Scroll Down ⬇️</a>
+        <div class="hero-overlay">
+            <h1 class="title-animated">
+                <span class="word tic">Tic</span>
+                <span class="word tac">Tac</span>
+                <span class="word toe">Toe</span>
+            </h1>
+            <p class="hero-subtitle">Challenge your mind, one move at a time.</p>
+            <a href="#about" class="cta-button hero-cta">Scroll Down</a>
+        </div>
     </section>
 
-    <!-- 💡 About Section -->
     <section id="about">
         <h2>About the Game</h2>
         <p>Tic Tac Toe is a simple yet fun strategy game. Whether you play as X or O, your goal is to get three in a row!</p>
     </section>
 
-    <!-- 🎮 How to Play Section -->
     <section id="howto">
         <h2>How to Play</h2>
         <ul class="steps">
@@ -43,7 +45,6 @@
         </ul>
     </section>
 
-    <!-- 🕹️ Game Section -->
     <section id="game">
         <header id="header">
         <div class="player player-active" id="xPlayerDisplay" onclick="choosePlayer('X')">X</div>
@@ -68,7 +69,6 @@
         <button id="restartBtn">Restart</button>
     </section>
 
-    <!-- 👣 Footer -->
     <footer>
         <p>Made with 💙 by [Namamu]</p>
         <a href="https://github.com/[username]/[repo]" target="_blank">GitHub Repo</a>
