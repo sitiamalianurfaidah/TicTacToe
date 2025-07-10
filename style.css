@@ -127,7 +127,7 @@ section {
     animation-delay: 1.6s;
 }
 .cta-button {
-    background: linear-gradient(135deg, #5911b8, #8813a8, #cc4d82);
+    background: #5911b8;
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
@@ -145,16 +145,205 @@ section {
     animation-delay: 2s;
 }
 
-#howto {
-    padding: 2rem 2rem;
-    background: var(--bg-color);
+#about {
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(88, 37, 148, 0.5) 70%,
+            rgba(114, 190, 244, 0.3) 100%
+        ),
+        var(--bg-color);
+    padding: 4rem 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 0rem;
 }
 
-#howto h2 {
-    font-size: 4rem;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
+#about::before {
+    content: "✨";
+    font-size: 6rem;
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    opacity: 1;
+    animation: spin 20s linear infinite;
+}
+
+#about::after {
+    content: "🪐";
+    font-size: 5rem;
+    position: absolute;
+    bottom: 120px;
+    right: 30px;
+    opacity: 1;
+    animation: float 2s ease-in-out infinite;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    text-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+    color: white;
+
+    opacity: 0;
+    transform: scale(0.6) translateY(50px);
+    animation: popGlow 1s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: var(--text-color);
+
+    opacity: 0;
+    transform: translateY(40px);
+    animation: floatShimmer 1.2s ease-out forwards;
+    animation-delay: 0.9s;
+}
+
+@keyframes popGlow {
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateY(50px);
+        text-shadow: 0 0 0 rgba(138, 43, 226, 0.3);
+    }
+    60% {
+        transform: scale(1.1) translateY(-5px);
+        text-shadow: 0 0 40px rgba(138, 43, 226, 0.7);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        text-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+        opacity: 1;
+    }
+}
+
+@keyframes floatShimmer {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: brightness(0.7) blur(4px);
+    }
+    50% {
+        opacity: 0.8;
+        filter: brightness(1.1) blur(1px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: brightness(1) blur(0);
+    }
+}
+
+/* Animations */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 150px 150px, 200px 200px, 100px 100px, 120px 120px;
+    background-position:
+        0 0,
+        30px 60px,
+        60px 30px,
+        90px 90px;
+
+    animation: twinkle 6s linear infinite;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px white);
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(-2px);
+    }
+}
+
+#howto {
+    position: relative; 
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(114, 190, 244, 0.3) 0%,
+            rgba(88, 37, 148, 0.5) 50%,
+            transparent 100%
+        ),
+        var(--bg-color);
+    padding: 2rem 2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+#howto .stars {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 0; /* biar teks & card tetap di atas bintang */
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 150px 150px, 200px 200px, 100px 100px, 120px 120px;
+    background-position:
+        0 0,
+        30px 60px,
+        60px 30px,
+        90px 90px;
+
+    animation: twinkle 6s linear infinite;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px white);
+}
+
+.howto-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    text-shadow: 0 0 25px rgba(91, 102, 227, 0.1);
+    color: white;
+
+    opacity: 0;
+    transform: scale(0.6) translateY(50px);
+    animation: popGlow 1s ease-out forwards;
+    animation-delay: 0.2s;
 }
 
 .howto-grid {
@@ -194,6 +383,40 @@ section {
     mask-composite: exclude;
     -webkit-mask-composite: destination-out;
     padding: 2px;
+}
+
+#howto::before {
+    content: "🌟"; /* bintang besar */
+    font-size: 5rem;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    opacity: 1;
+    animation: spin 18s linear infinite;
+}
+
+#howto::after {
+    content: "🚀"; /* roket biar lucu */
+    font-size: 4.5rem;
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+    opacity: 1;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.emoji-decor {
+    position: absolute;
+    font-size: 4.5rem;
+    z-index: 0;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.emoji-decor.moon {
+    top: -19px;
+    left: 200px;
+    animation: spin 20s linear infinite;
 }
 
 /* emoji style */
