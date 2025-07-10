@@ -640,3 +640,44 @@ html {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
     margin-top: 0rem;
 }
+.site-footer {
+    background-color: var(--card-color);
+    padding: 2rem 1.5rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-container {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-left p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-right a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.footer-right a:hover {
+    transform: scale(1.2);
+}
