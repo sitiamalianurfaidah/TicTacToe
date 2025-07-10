@@ -9,7 +9,7 @@ window.addEventListener("scroll", () => {
         const scrollPercent = (scrollTop / docHeight) * 100;
         document.getElementById("scrollProgress").style.width = scrollPercent + "%";
     });
-    
+
 const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
