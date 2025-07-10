@@ -71,15 +71,18 @@
     <img src="assets/left-deco.svg" alt="Left Decoration" class="side-svg left-svg">
     <section id="game">
         <div class="stars"></div>
-        <h1 class="game-title">✨ TicTacToe Galaxy Battle ✨</h1>
-        <p class="game-subtitle">Choose your player and start the game!</p>
-
-        <header id="header">
-            <div class="player player-active" id="xPlayerDisplay" onclick="choosePlayer('X')">X</div>
-            <h3 id="titleHeader">Choose</h3>
-            <div class="player" id="oPlayerDisplay" onclick="choosePlayer('O')">O</div>
-        </header>
-
+        <h1 class="game-title">✨ TicTacToe Galaxy ✨</h1>
+        <div class="mode-selection">
+            <h2 class="game-subtitle">Choose Your Mode</h2>
+            <button class="mode-btn" onclick="setGameMode('pvp')">Player vs Player</button>
+            <button class="mode-btn" onclick="setGameMode('pvc')">Player vs Computer</button>
+        </div>
+        <section id="game-section" style="display: none;">
+            <header id="header">
+                <div class="player player-active" id="xPlayerDisplay" onclick="choosePlayer('X')">X</div>
+                <h3 id="titleHeader">Choose</h3>
+                <div class="player" id="oPlayerDisplay" onclick="choosePlayer('O')">O</div>
+            </header>
         <div id="board">
             <div class="cell" cellIndex="0"></div>
             <div class="cell" cellIndex="1"></div>
@@ -91,10 +94,9 @@
             <div class="cell" cellIndex="7"></div>
             <div class="cell" cellIndex="8"></div>
         </div>
-
         <h2 id="statusText"></h2>
-        
         <button id="restartBtn">Restart</button>
+        </section>
 
         <div class="floating-stars"></div>
     </section>

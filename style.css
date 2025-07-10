@@ -509,7 +509,8 @@ section {
     width: 235px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    margin-top: 0;
 }
 #header .player {
     background: var(--card-color);
@@ -563,7 +564,8 @@ section {
 }
 
 #board, #statusText, #restartBtn {
-    margin-top: 0.5;
+    margin-top: 0;
+    margin-bottom: 0;
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -595,8 +597,18 @@ section {
     }
 }
 
+#game-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none; /* awalnya disembunyikan */
+    animation: fadeIn 0.8s ease forwards;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
 .game-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     text-align: center;
     color: white;
     margin-top:100px;
@@ -608,8 +620,8 @@ section {
     animation: fadeInDown 1s ease-out;
 }
 .game-subtitle {
-    font-size: 1.1rem;
-    color: #aaa;
+    font-size: 2.5rem;
+    color: #fdfafa;
     text-align: center;
     margin-top: 0px;
     margin-bottom: 20px;
@@ -873,4 +885,25 @@ html {
 @keyframes floatY {
     0%, 100% { transform: translateY(-50%) translateX(0); }
     50% { transform: translateY(-52%) translateX(5px); }
+}
+
+.mode-selection {
+    text-align: center;
+    margin-top: 10px;
+}
+.mode-btn {
+    margin: 10px;
+    padding: 20px 30px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(45deg, #A737FF, #1892EA);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.mode-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(167, 55, 255, 0.4);
 }
