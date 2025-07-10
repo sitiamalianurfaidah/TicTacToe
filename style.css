@@ -1,17 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    user-select: none;
-    
-    color: white;
+:root {
+    --bg-color: #0A0519;
+    --card-color: #17122A;
+    --accent-color: #2A2343;
+    --text-color: white;
+    --primary-x: #1892EA;
+    --primary-o: #A737FF;
 }
 
-main {
-    background: #0A0519;
-    height: 100vh;
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.light-mode {
+    --bg-color: #F7F7F7;
+    --card-color: #FFFFFF;
+    --accent-color: #DADADA;
+    --text-color: #1A1A1A;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.nav-links li a:hover {
+    background-color: var(--accent-color);
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+section {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+#hero {
+    padding-top: 6rem;
+}
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.cta-button {
+    background-color: var(--primary-x);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.cta-button:hover {
+    background-color: #0c7bcc;
+}
+
+#howto ul.steps {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+#howto ul.steps li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Game Section */
+#game {
+    background: var(--bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +123,7 @@ main {
     margin-bottom: 30px;
 }
 #header .player {
-    background: #17122A;
+    background: var(--card-color);
     width: 60px;
     height: 60px;
     display: flex;
@@ -36,22 +133,22 @@ main {
     font-weight: bold;
     cursor: pointer;
     border-radius: 12px;
-    border: solid 4px #17122A;
+    border: solid 4px var(--card-color);
     opacity: 0.5;
     transition: 0.3s;
 }
 #header .player:hover {
-    border: solid 4px #2A2343;
+    border: solid 4px var(--accent-color);
 }
 #header .player-active {
     opacity: 1;
-    border: solid 4px #2A2343;
+    border: solid 4px var(--accent-color);
 }
-#header #xPlayerDisplay {
-    color: #1892EA;
+#xPlayerDisplay {
+    color: var(--primary-x);
 }
-#header #oPlayerDisplay {
-    color: #A737FF;
+#oPlayerDisplay {
+    color: var(--primary-o);
 }
 
 #board {
@@ -61,7 +158,7 @@ main {
     gap: 12px;
 }
 #board .cell {
-    background: #17122A;
+    background: var(--card-color);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -69,26 +166,46 @@ main {
     font-size: 36px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s background;
+    transition: background 0.3s;
 }
 #board .cell:hover {
-    background: #2A2343;
+    background: var(--accent-color);
 }
 
 #restartBtn {
     margin-top: 30px;
     width: 235px;
-    background: #17122A;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    background: var(--card-color);
+    padding: 10px 0;
     border: none;
     border-radius: 12px;
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s background;
+    transition: background 0.3s;
     visibility: hidden;
 }
 #restartBtn:hover {
-    background: #2A2343;
+    background: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--card-color);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+    section {
+        padding: 2rem 1rem;
+    }
+    #hero h1 {
+        font-size: 2.2rem;
+    }
 }

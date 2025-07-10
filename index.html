@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TicTacToe Game</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- 🌙 Theme Toggle & Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">TicTacToe</div>
+        <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#howto">How to Play</a></li>
+        <li><a href="#game">Play</a></li>
+        </ul>
+        <button id="themeToggle">🌙</button>
+    </nav>
 
-    <main>
+    <!-- 🎯 Hero Section -->
+    <section id="hero">
+        <h1>Tic Tac Toe</h1>
+        <p>Challenge your mind, one move at a time.</p>
+        <a href="#about" class="cta-button">Scroll Down ⬇️</a>
+    </section>
+
+    <!-- 💡 About Section -->
+    <section id="about">
+        <h2>About the Game</h2>
+        <p>Tic Tac Toe is a simple yet fun strategy game. Whether you play as X or O, your goal is to get three in a row!</p>
+    </section>
+
+    <!-- 🎮 How to Play Section -->
+    <section id="howto">
+        <h2>How to Play</h2>
+        <ul class="steps">
+        <li>🧠 Choose your player (X or O)</li>
+        <li>👆 Click a square to make your move</li>
+        <li>🏆 Get 3 in a row to win!</li>
+        <li>🔁 Click Restart to play again</li>
+        </ul>
+    </section>
+
+    <!-- 🕹️ Game Section -->
+    <section id="game">
         <header id="header">
-            <div class="player player-active"
-            id="xPlayerDisplay"
-            onclick="choosePlayer('X')">
-            X
-            </div>
-            <h3 id="titleHeader">Choose</h3>
-            <div class="player"
-            id="oPlayerDisplay"
-            onclick="choosePlayer('O')">
-            O
-            </div>
+        <div class="player player-active" id="xPlayerDisplay" onclick="choosePlayer('X')">X</div>
+        <h3 id="titleHeader">Choose</h3>
+        <div class="player" id="oPlayerDisplay" onclick="choosePlayer('O')">O</div>
         </header>
 
         <div id="board">
-            <div class="cell" cellIndex="0"></div>
-            <div class="cell" cellIndex="1"></div>
-            <div class="cell" cellIndex="2"></div>
-            <div class="cell" cellIndex="3"></div>
-            <div class="cell" cellIndex="4"></div>
-            <div class="cell" cellIndex="5"></div>
-            <div class="cell" cellIndex="6"></div>
-            <div class="cell" cellIndex="7"></div>
-            <div class="cell" cellIndex="8"></div>
+        <div class="cell" cellIndex="0"></div>
+        <div class="cell" cellIndex="1"></div>
+        <div class="cell" cellIndex="2"></div>
+        <div class="cell" cellIndex="3"></div>
+        <div class="cell" cellIndex="4"></div>
+        <div class="cell" cellIndex="5"></div>
+        <div class="cell" cellIndex="6"></div>
+        <div class="cell" cellIndex="7"></div>
+        <div class="cell" cellIndex="8"></div>
         </div>
 
         <h2 id="statusText"></h2>
 
-        <button id="restartBtn">
-            Restart
-        </button>
-    </main>
+        <button id="restartBtn">Restart</button>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer>
+        <p>Made with 💙 by [Namamu]</p>
+        <a href="https://github.com/[username]/[repo]" target="_blank">GitHub Repo</a>
+    </footer>
 
     <script src="script.js"></script>
 </body>

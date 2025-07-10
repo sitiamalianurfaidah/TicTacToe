@@ -1,6 +1,7 @@
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
+const themeToggle = document.querySelector("#themeToggle");
 const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -20,9 +21,13 @@ initializeGame();
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartBtn.addEventListener("click", restartGame);
+    if (themeToggle) {
+        themeToggle.addEventListener("click", toggleTheme);
+    }
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
 }
+
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
 
@@ -33,14 +38,17 @@ function cellClicked(){
     updateCell(this, cellIndex);
     checkWinner();
 }
+
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
 }
+
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`;
 }
+
 function checkWinner(){
     let roundWon = false;
 
@@ -63,6 +71,7 @@ function checkWinner(){
         statusText.textContent = `${currentPlayer} wins!`;
         running = false;
         restartBtn.style.visibility = "visible";
+        showConfetti();
     }
     else if(!options.includes("")){
         statusText.textContent = `Draw!`;
@@ -73,6 +82,7 @@ function checkWinner(){
         changePlayer();
     }
 }
+
 function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "", ""];
@@ -80,4 +90,27 @@ function restartGame(){
     cells.forEach(cell => cell.textContent = "");
     running = true;
     restartBtn.style.visibility = "hidden";
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    themeToggle.innerText = isLight ? "🌞" : "🌙";
+}
+
+function showConfetti() {
+    // Simple confetti effect using emojis
+    const confetti = document.createElement("div");
+    confetti.textContent = "🎉";
+    confetti.style.position = "fixed";
+    confetti.style.top = "50%";
+    confetti.style.left = "50%";
+    confetti.style.transform = "translate(-50%, -50%)";
+    confetti.style.fontSize = "4rem";
+    confetti.style.zIndex = "999";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, 1500);
 }
