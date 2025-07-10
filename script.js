@@ -2,6 +2,14 @@ const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
 const themeToggle = document.querySelector("#themeToggle");
+
+window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.getElementById("scrollProgress").style.width = scrollPercent + "%";
+    });
+    
 const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
