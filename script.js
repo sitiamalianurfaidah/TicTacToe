@@ -105,20 +105,29 @@ function toggleTheme() {
     const isLight = document.body.classList.contains("light-mode");
     themeToggle.innerText = isLight ? "🌞" : "🌙";
 }
-
 function showConfetti() {
-    // Simple confetti effect using emojis
-    const confetti = document.createElement("div");
-    confetti.textContent = "🎉";
-    confetti.style.position = "fixed";
-    confetti.style.top = "50%";
-    confetti.style.left = "50%";
-    confetti.style.transform = "translate(-50%, -50%)";
-    confetti.style.fontSize = "4rem";
-    confetti.style.zIndex = "999";
-    document.body.appendChild(confetti);
+    const colors = ["#A737FF", "#1892EA", "#FF5F6D", "#FFC371", "#42E695"];
+    const numConfetti = 100;
+    const audio = new Audio("win-sound.mp3");
+        audio.play();
+
+    for (let i = 0; i < numConfetti; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+        confetti.style.opacity = Math.random();
+        document.body.appendChild(confetti);
+
+        // Hapus confetti setelah animasi selesai
+        setTimeout(() => {
+            confetti.remove();
+        }, 3000);
+    }
+}
 
     setTimeout(() => {
         confetti.remove();
     }, 1500);
-}
+
