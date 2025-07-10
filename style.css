@@ -114,7 +114,7 @@ section {
 
 #hero {
     position: relative;
-    background-image: url("background-dark.jpg");
+    background-image: url("assets/background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -497,11 +497,11 @@ section {
 
 /* Game Section */
 #game {
-    background: var(--bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0;
 }
 
 #header {
@@ -649,7 +649,7 @@ footer {
     background-color: var(--card-color);
     text-align: center;
     padding: 1.5rem 1rem;
-    margin-top: 4rem;
+    margin-top: 0rem;
 }
 
 /* Responsive */
@@ -817,4 +817,60 @@ html {
         transform: translateY(100vh) rotate(720deg);
         opacity: 0;
     }
+}
+
+#game-container {
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(88, 37, 148, 0.5) 100%
+        ),
+        var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 0;
+    margin-bottom: 0;
+}
+
+.side-svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.left-svg {
+    left: 0;
+    width: 150px;
+    margin-left: 180px;
+    margin-bottom: 0;
+    margin-top: 40px;
+
+}
+
+.right-svg {
+    right: 0;
+    width: 100px;
+    margin-right: 220px;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .side-svg {
+        display: none;
+    }
+}
+
+.side-svg {
+    animation: floatY 3s ease-in-out infinite;
+}
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-52%) translateX(5px); }
 }
